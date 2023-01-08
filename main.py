@@ -48,42 +48,47 @@ w = WindowMgr()
 w.find_window_wildcard(".*" + text_input + ".*")
 w.set_foreground()
 
-#this code only works on screen sizes that have a width=1920, height=1080
-print(pyautogui.size())
+try:
+    while True:
 
-#the following function clicks in location
-pyautogui.click(1040,246, duration = 2)
-time.sleep(.5)
-pyautogui.hotkey('ctrlleft', 'c')
-time.sleep(.5)
-pyautogui.scroll(-120)
-time.sleep(1)
-pyautogui.moveTo(904,293, duration = 1)
-pyautogui.click(904,293, duration = 1)
-time.sleep(1)
-pyautogui.hotkey('ctrlleft', 'v')
-time.sleep(.5)
-pyautogui.click(1079,291, duration = 1)
-pyautogui.click(962,711, duration = 1)
-pyautogui.click(776,669, duration = 1)
-time.sleep(2)
+        #this code only works on screen sizes that have a width=1920, height=1080
+        print(pyautogui.size())
+        #the following function clicks in location
+        pyautogui.click(1040,246, duration = 2)
+        time.sleep(.5)
+        pyautogui.hotkey('ctrlleft', 'c')
+        time.sleep(.5)
+        pyautogui.scroll(-120)
+        time.sleep(1)
+        pyautogui.moveTo(904,293, duration = 1)
+        pyautogui.click(904,293, duration = 1)
+        time.sleep(1)
+        pyautogui.hotkey('ctrlleft', 'v')
+        time.sleep(.5)
+        pyautogui.click(1079,291, duration = 1)
+        pyautogui.click(962,711, duration = 1)
+        pyautogui.click(776,669, duration = 1)
+        time.sleep(2)
 
-#This clicks date and time and saves
-pyautogui.click(735,651, duration = 1)
-pyautogui.click(735,667, duration = 1)
-pyautogui.click(735,683, duration = 1)
-pyautogui.click(1047,799, duration = 1)
-time.sleep(1)
+        #This clicks date and time and saves
+        pyautogui.click(735,651, duration = 1)
+        pyautogui.click(735,667, duration = 1)
+        pyautogui.click(735,683, duration = 1)
+        pyautogui.click(1047,799, duration = 1)
+        time.sleep(1)
 
-#this Routs
-pyautogui.click(1020,763, duration = 1)
-time.sleep(2.5
-           )
-#Fills out the writting and saves
-pyautogui.typewrite('NOSE')
-pyautogui.click(1005,747, duration = 1)
+        #this Routs
+        pyautogui.click(1020,763, duration = 1)
+        time.sleep(2.5)
+
+        #Fills out the writting and saves
+        pyautogui.typewrite('NOSE')
+        pyautogui.click(1005,747, duration = 1)
 
 
-w = WindowMgr()
-w.find_window_wildcard(".*A10960.*")
-w.set_foreground()
+        w = WindowMgr()
+        w.find_window_wildcard(".*A10960.*")
+        w.set_foreground()
+
+except KeyboardInterrupt:
+    pass
