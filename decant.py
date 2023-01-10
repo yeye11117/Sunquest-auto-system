@@ -52,7 +52,7 @@ print(pyautogui.size())
 try:
     while True:
         w = WindowMgr()
-        w.find_window_wildcard(".*A10960.*")
+        w.find_window_wildcard(".*Holo_CID.*")
         w.set_foreground()
 
         #the following function clicks in location
@@ -70,10 +70,11 @@ try:
         pyautogui.click(795,89, duration = 1)
         pyautogui.click(790,259, duration = 1)
         pyautogui.click(1014,661, duration = 1)
+        pyautogui.hotkey('backspace')
         time.sleep(2)
 
         w = WindowMgr()
-        w.find_window_wildcard(".*A10960.*")
+        w.find_window_wildcard(".*Holo_CID.*")
         w.set_foreground()
 
 except KeyboardInterrupt:
