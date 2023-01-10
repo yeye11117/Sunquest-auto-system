@@ -62,31 +62,15 @@ try:
         time.sleep(.5)
         pyautogui.scroll(-120)
         time.sleep(1)
-        pyautogui.moveTo(904,293, duration = 1)
-        pyautogui.click(904,293, duration = 1)
+        pyautogui.moveTo(164,92, duration = 1)
+        pyautogui.click(164,92, duration = 1)
         time.sleep(1)
         pyautogui.hotkey('ctrlleft', 'v')
         time.sleep(.5)
-        pyautogui.click(1079,291, duration = 1)
-        pyautogui.click(962,711, duration = 1)
-        pyautogui.click(776,669, duration = 1)
+        pyautogui.click(795,89, duration = 1)
+        pyautogui.click(790,259, duration = 1)
+        pyautogui.click(1014,661, duration = 1)
         time.sleep(2)
-
-        #This clicks date and time and saves
-        pyautogui.click(735,651, duration = 1)
-        pyautogui.click(735,667, duration = 1)
-        pyautogui.click(735,683, duration = 1)
-        pyautogui.click(1047,799, duration = 1)
-        time.sleep(1)
-
-        #this Routs
-        pyautogui.click(1020,763, duration = 1)
-        time.sleep(2.5)
-
-        #Fills out the writting and saves
-        pyautogui.typewrite('NOSE')
-        pyautogui.click(1005,747, duration = 1)
-
 
         w = WindowMgr()
         w.find_window_wildcard(".*A10960.*")
