@@ -44,17 +44,21 @@ text_input = values[0]
 sg.popup('You entered', text_input)
 
 #This calls the window of interest into the foreground once the user intputs what window they will be working with
-w = WindowMgr()
-w.find_window_wildcard(".*" + text_input + ".*")
-w.set_foreground()
+#w = WindowMgr()
+#w.find_window_wildcard(".*" + text_input + ".*")
+#w.set_foreground()
+#this code only works on screen sizes that have a width=1920, height=1080
+print(pyautogui.size())
 
 try:
     while True:
-
+        w = WindowMgr()
+        w.find_window_wildcard(".*A10960.*")
+        w.set_foreground()
         #this code only works on screen sizes that have a width=1920, height=1080
-        print(pyautogui.size())
+        #print(pyautogui.size())
         #the following function clicks in location
-        pyautogui.click(1040,246, duration = 2)
+        pyautogui.click(1040,252, duration = 2)
         time.sleep(.5)
         pyautogui.hotkey('ctrlleft', 'c')
         time.sleep(.5)
@@ -70,6 +74,9 @@ try:
         pyautogui.click(776,669, duration = 1)
         time.sleep(2)
 
+        #Change this to print order types
+        pyautogui.click(689, 380, duration=1)
+
         #This clicks date and time and saves
         pyautogui.click(735,651, duration = 1)
         pyautogui.click(735,667, duration = 1)
@@ -79,16 +86,18 @@ try:
 
         #this Routs
         pyautogui.click(1020,763, duration = 1)
-        time.sleep(2.5)
+        time.sleep(3)
 
         #Fills out the writting and saves
         pyautogui.typewrite('NOSE')
         pyautogui.click(1005,747, duration = 1)
-
+        pyautogui.click(1132, 799, duration=1)
 
         w = WindowMgr()
         w.find_window_wildcard(".*A10960.*")
         w.set_foreground()
+
+        pyautogui.click(1040, 246, duration=2)
 
 except KeyboardInterrupt:
     pass
