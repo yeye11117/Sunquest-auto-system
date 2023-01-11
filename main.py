@@ -30,7 +30,7 @@ class WindowMgr:
         """put the window in the foreground"""
         win32gui.SetForegroundWindow(self._handle)
 
-#This section of the couds pops up a simple GUI were the user is going to input the name of the Excel file they will be working with
+#This section of the code pops up a simple GUI were the user is going to input the name of the Excel file they will be working with
 layout = [[sg.Text('Name of Excel File you will be using (case sensitive)')],
                  [sg.InputText()],
                  [sg.Submit(), sg.Cancel()]]
@@ -43,21 +43,17 @@ window.close()
 text_input = values[0]
 sg.popup('You entered', text_input)
 
-#This calls the window of interest into the foreground once the user intputs what window they will be working with
-#w = WindowMgr()
-#w.find_window_wildcard(".*" + text_input + ".*")
-#w.set_foreground()
-#this code only works on screen sizes that have a width=1920, height=1080
+#this code only works on screen sizes that have a width=1920, height=1080 and this functions tells you the messurments of your screen
 print(pyautogui.size())
 
 try:
     while True:
+        #This sets the window of interest into the foreground using regular expression search based on your gui inputs (Must be changed manually to match the excel file you will use)
         w = WindowMgr()
         w.find_window_wildcard(".*A10960.*")
         w.set_foreground()
-        #this code only works on screen sizes that have a width=1920, height=1080
-        #print(pyautogui.size())
-        #the following function clicks in location
+
+        #the following copy and pastes the first Excel Cell (excluding headers), and copy pastes it into the search bar on SunQuest
         pyautogui.click(1040,252, duration = 2)
         time.sleep(.5)
         pyautogui.hotkey('ctrlleft', 'c')
@@ -70,34 +66,33 @@ try:
         pyautogui.hotkey('ctrlleft', 'v')
         time.sleep(.5)
         pyautogui.click(1079,291, duration = 1)
+
+        #This sections hits safe on the pop up screen
         pyautogui.click(962,711, duration = 1)
         pyautogui.click(776,669, duration = 1)
         time.sleep(2)
 
-        #Change this to print order types
+        #Change this to print a specific order on the list based on it's coordinate position.
         pyautogui.click(689, 380, duration=1)
 
-        #This clicks date and time and saves
+        #This clicks date and time (which auto fill with each click) and saves it
         pyautogui.click(735,651, duration = 1)
         pyautogui.click(735,667, duration = 1)
         pyautogui.click(735,683, duration = 1)
         pyautogui.click(1047,799, duration = 1)
         time.sleep(1)
 
-        #this Routs
+        #This Routs the inputs for the order entery
         pyautogui.click(1020,763, duration = 1)
         time.sleep(3)
 
-        #Fills out the writting and saves
-        pyautogui.typewrite('NOSE')
+        #Fills out the source and saves it
         pyautogui.click(1005,747, duration = 1)
         pyautogui.click(1132, 799, duration=1)
 
-        w = WindowMgr()
-        w.find_window_wildcard(".*A10960.*")
-        w.set_foreground()
-
+        #Brings the Excel sheet to the foreground and repeats the cycle
         pyautogui.click(1040, 246, duration=2)
 
+#This is used to Interrupt the code. The user should aggresively move their mouse for about 2 seconds for the code to break off
 except KeyboardInterrupt:
     pass
