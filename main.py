@@ -48,50 +48,74 @@ print(pyautogui.size())
 
 try:
     while True:
-        #This sets the window of interest into the foreground using regular expression search based on your gui inputs (Must be changed manually to match the excel file you will use)
+        # This sets the window of interest into the foreground using regular expression search based on your gui inputs (Must be changed manually to match the excel file you will use)
         w = WindowMgr()
         w.find_window_wildcard(".*A10960.*")
         w.set_foreground()
 
-        #the following copy and pastes the first Excel Cell (excluding headers), and copy pastes it into the search bar on SunQuest
-        pyautogui.click(1040,252, duration = 2)
+        # the following copy and pastes the first Excel Cell (excluding headers), and copy pastes it into the search bar on SunQuest
+        pyautogui.click(1040, 252, duration=2)
         time.sleep(.5)
         pyautogui.hotkey('ctrlleft', 'c')
         time.sleep(.5)
         pyautogui.scroll(-120)
         time.sleep(1)
-        pyautogui.moveTo(904,293, duration = 1)
-        pyautogui.click(904,293, duration = 1)
+        pyautogui.moveTo(904, 293, duration=1)
+        pyautogui.click(904, 293, duration=1)
         time.sleep(1)
         pyautogui.hotkey('ctrlleft', 'v')
         time.sleep(.5)
-        pyautogui.click(1079,291, duration = 1)
+        pyautogui.click(1079, 291, duration=1)
 
-        #This sections hits safe on the pop up screen
-        pyautogui.click(962,711, duration = 1)
-        pyautogui.click(776,669, duration = 1)
+        # This sections hits safe on the pop up screen
+        pyautogui.click(962, 711, duration=1)
+        pyautogui.click(776, 669, duration=1)
         time.sleep(2)
 
-        #Change this to print a specific order on the list based on it's coordinate position.
+        # Change this to print a specific order on the list based on it's coordinate position.
         pyautogui.click(689, 380, duration=1)
 
-        #This clicks date and time (which auto fill with each click) and saves it
-        pyautogui.click(735,651, duration = 1)
-        pyautogui.click(735,667, duration = 1)
-        pyautogui.click(735,683, duration = 1)
-        pyautogui.click(1047,799, duration = 1)
+        # This clicks date and time (which auto fill with each click) and saves it
+        pyautogui.click(735, 651, duration=1)
+        pyautogui.click(735, 667, duration=1)
+        pyautogui.click(735, 683, duration=1)
+        pyautogui.click(1047, 799, duration=1)
+        time.sleep(2)
+
+        # This Routs the inputs for the order entery
+        pyautogui.click(1020, 763, duration=1)
+        time.sleep(3)
+        pyautogui.write("NOSE")
+        time.sleep(1)
+        pyautogui.click(1000, 752, duration=1)
+
+        # Change this to print a specific order on the list based on it's coordinate position.
+        pyautogui.click(689, 380, duration=1)
+
+        # This clicks date and time (which auto fill with each click) and saves it
+        pyautogui.click(735, 651, duration=1)
+        pyautogui.click(735, 667, duration=1)
+        pyautogui.click(735, 683, duration=1)
+        pyautogui.click(1047, 799, duration=1)
         time.sleep(1)
 
-        #This Routs the inputs for the order entery
-        pyautogui.click(1020,763, duration = 1)
+        # This Routs the inputs for the order entery
+        pyautogui.click(1020, 763, duration=1)
         time.sleep(3)
+        pyautogui.write("NOSE")
+        time.sleep(1)
+        pyautogui.click(1000, 752, duration=1)
 
-        #Fills out the source and saves it
-        pyautogui.click(1005,747, duration = 1)
+        # Fills out the source and saves it
+        pyautogui.click(1005, 747, duration=1)
         pyautogui.click(1132, 799, duration=1)
 
-        #Brings the Excel sheet to the foreground and repeats the cycle
+        # Brings the Excel sheet to the foreground and repeats the cycle
         pyautogui.click(1040, 246, duration=2)
+
+        w = WindowMgr()
+        w.find_window_wildcard(".*A10960.*")
+        w.set_foreground()
 
 #This is used to Interrupt the code. The user should aggresively move their mouse for about 2 seconds for the code to break off
 except KeyboardInterrupt:
